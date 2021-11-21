@@ -85,9 +85,10 @@
    # --rm 当容器停止后删除容器
    # -p 端口映射到物理机
    # -v 卷映射，将游戏存档持久化到物理机硬盘上
-   $ docker run -d --rm -p 7777:7777 -v /home/xsf/temp/Worlds:/usr/local/tserver/Worlds 1423_master_smallworld:v1 
+   $ docker run -it --rm -p 7777:7777 -v /home/xsf/temp/Worlds:/usr/local/tserver/Worlds 1423_master_smallworld:v1 
    ```
-
+   **至于为什么一定需要 -it 而不是 -d 至于后台启动，因为游戏服务的限制，必须前置终端输出，否则会启动失败
+   如果需要在远程服务器上启动，需要用screen或tmux配合启动，因为当关闭远程后，服务会自动关闭（没有守护进程**
 #### 后记
 
 1. 游戏服务器配置文件(参考)
